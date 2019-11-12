@@ -7,7 +7,7 @@ const Dog = require("../models/dog");
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.status(200).json({
-    msg: "Node.js and Mongodb replica set on OCP"
+    msg: "Node.js and Mongodb replica set on OCP, checkout /dogs to use Mongo"
   });
 });
 
@@ -19,7 +19,7 @@ router.get("/dogs", async function(req, res, next) {
   });
 });
 
-// Add dog by param
+//* POST dogs page. */
 router.post("/dogs", async function(req, res, next) {
   let { name } = req.body;
   let newDog = new Dog({ name: name });

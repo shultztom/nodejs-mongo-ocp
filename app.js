@@ -17,7 +17,7 @@ app.use("/", indexRouter);
 
 if (process.env.isOCP) {
   mongoose
-    .connect("mongodb://mongodb.mongo.svc:27017/mongo", {
+    .connect("mongodb://mongodb.mongo.svc:27017/mongo?replicaSet=rs0", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       user: "mongouser",

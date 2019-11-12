@@ -5,3 +5,6 @@ Currently:
 
 Config for mongo replicaset:
 https://github.com/sclorg/mongodb-container/tree/master/examples/petset
+
+Add env to OCP:
+isOCP:true
