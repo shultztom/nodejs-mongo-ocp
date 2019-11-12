@@ -1,4 +1,4 @@
-When port-forwarding for local development, make sure you are point forwarding the master
+When port-forwarding for local development, make sure you are port forwarding the master
 
 Currently:
 `oc port-forward mongodb-1 27017:27017`
