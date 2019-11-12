@@ -1,0 +1,23 @@
+{
+  "name": "nodejs-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:dev": "nodemon ./bin/www",
+    "build": "docker build -t tks23/nodejs-mongo:latest .",
+    "push": "docker push tks23/nodejs-mongo:latest",
+    "import-image": "oc import-image nodejs-mongo"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "nodemon": "^1.19.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.10",
+    "morgan": "^1.9.1"
+  }
+}
