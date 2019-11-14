@@ -19,7 +19,7 @@ app.use("/", indexRouter);
 
 if (process.env.isOCP) {
   mongoose
-    .connect("mongodb://mongodb.mongo.svc:27017/mongo?replicaSet=rs0", {
+    .connect("mongodb://mongodb:27017/mongo?replicaSet=rs0", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       user: process.env.MONGODB_USER,
@@ -29,7 +29,7 @@ if (process.env.isOCP) {
       console.log("Mongo connected");
     })
     .catch(err => {
-      console.log("Monoge error:");
+      console.log("Mongo error:");
       console.log(err);
     });
 } else {
@@ -46,7 +46,7 @@ if (process.env.isOCP) {
       console.log("Mongo connected");
     })
     .catch(err => {
-      console.log("Monoge error:");
+      console.log("Mongo error:");
       console.log(err);
     });
 }
