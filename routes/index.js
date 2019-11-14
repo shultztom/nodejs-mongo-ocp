@@ -18,6 +18,9 @@ router.get("/dogs", async function(req, res, next) {
     dogs = await Dog.find();
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      msg: error
+    });
   }
 
   res.status(200).json({
@@ -34,6 +37,9 @@ router.post("/dogs", async function(req, res, next) {
     dog = await newDog.save();
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      msg: error
+    });
   }
 
   res.status(200).json({

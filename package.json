@@ -7,7 +7,8 @@
     "start:dev": "nodemon ./bin/www",
     "build": "docker build -t tks23/nodejs-mongo:latest .",
     "push": "docker push tks23/nodejs-mongo:latest",
-    "import-image": "oc import-image nodejs-mongo"
+    "import-image": "oc import-image nodejs-mongo",
+    "deploy": "yarn build && yarn push && yarn import-image"
   },
   "author": "",
   "license": "ISC",
