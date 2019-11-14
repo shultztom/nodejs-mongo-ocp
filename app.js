@@ -20,8 +20,8 @@ if (process.env.isOCP) {
     .connect("mongodb://mongodb.mongo.svc:27017/mongo?replicaSet=rs0", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      user: "mongouser",
-      pass: "mongouser"
+      user: process.env.MONGODB_USER,
+      pass: process.env.MONGODB_PASSWORD
     })
     .then(() => {
       console.log("Mongo connected");
@@ -33,10 +33,13 @@ if (process.env.isOCP) {
 } else {
   console.log("Make sure you're pointing at the Master in Mongo!");
   mongoose
-    .connect("mongodb://mongouser:mongouser@localhost:27017/mongo", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    })
+    .connect(
+      `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@localhost:27017/mongo`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    )
     .then(() => {
       console.log("Mongo connected");
     })
