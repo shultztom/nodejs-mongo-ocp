@@ -15,5 +15,15 @@ Use Generic Secrets; One for user, one for password
 
 Map them to env variables
 
-- The nodejs api should automatically restart
-- The pods in the mongo stateful set will need to be manually terminated to get the new env
+Updating creds:
+
+1. Replace the mongo-password secret with the new one
+   - This should update the env vars
+2. Access the terminal in a pod in the stateful set and update the password manually
+   1. `mongo`
+   2. `use admin`
+   3. `db.auth("admin", "ADMIN_PASSWORD")`
+   4. `use REPLACE_WITH_DB_NAME`
+   5. `db.changeUserPassword("USER", "PASSWORD")`
+3. `./scripts/oc-reploy-mongo.sh`
+4. Redeploy the api

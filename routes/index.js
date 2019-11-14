@@ -13,7 +13,13 @@ router.get("/", function(req, res, next) {
 
 /* GET dogs page. */
 router.get("/dogs", async function(req, res, next) {
-  let dogs = await Dog.find();
+  let dogs;
+  try {
+    dogs = await Dog.find();
+  } catch (error) {
+    console.log(error);
+  }
+
   res.status(200).json({
     dogs
   });
@@ -23,7 +29,13 @@ router.get("/dogs", async function(req, res, next) {
 router.post("/dogs", async function(req, res, next) {
   let { name } = req.body;
   let newDog = new Dog({ name: name });
-  let dog = await newDog.save();
+  let dog;
+  try {
+    dog = await newDog.save();
+  } catch (error) {
+    console.log(error);
+  }
+
   res.status(200).json({
     dog
   });
