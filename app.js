@@ -23,7 +23,10 @@ if (process.env.isOCP) {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       user: process.env.MONGODB_USER,
-      pass: process.env.MONGODB_PASSWORD
+      pass: process.env.MONGODB_PASSWORD,
+      socketTimeoutMS: 0,
+      keepAlive: true,
+      reconnectTries: 30
     })
     .then(() => {
       console.log("Mongo connected");
@@ -39,7 +42,10 @@ if (process.env.isOCP) {
       `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@localhost:27017/mongo`,
       {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        socketTimeoutMS: 0,
+        keepAlive: true,
+        reconnectTries: 30
       }
     )
     .then(() => {
