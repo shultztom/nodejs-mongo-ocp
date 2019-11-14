@@ -25,6 +25,5 @@ Updating creds:
    3. `db.auth("admin", "ADMIN_PASSWORD")`
    4. `use REPLACE_WITH_DB_NAME`
    5. `db.changeUserPassword("USER", "PASSWORD")`
-   6. `db.grantRolesToUser("USER", ["readWrite"])`
 3. `./scripts/oc-reploy-mongo.sh`
 4. Redeploy the api

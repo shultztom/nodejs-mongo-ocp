@@ -19,15 +19,16 @@ app.use("/", indexRouter);
 
 if (process.env.isOCP) {
   mongoose
-    .connect("mongodb://mongodb:27017/mongo?replicaSet=rs0", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      user: process.env.MONGODB_USER,
-      pass: process.env.MONGODB_PASSWORD,
-      socketTimeoutMS: 0,
-      keepAlive: true,
-      reconnectTries: 30
-    })
+    .connect(
+      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@mongodb:27017/mongo?replicaSet=rs0`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        socketTimeoutMS: 0,
+        keepAlive: true,
+        reconnectTries: 30
+      }
+    )
     .then(() => {
       console.log("Mongo connected");
     })
@@ -39,7 +40,7 @@ if (process.env.isOCP) {
   console.log("Make sure you're pointing at the Master in Mongo!");
   mongoose
     .connect(
-      `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@localhost:27017/mongo`,
+      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@localhost:27017/mongo`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
