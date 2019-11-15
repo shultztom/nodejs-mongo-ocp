@@ -40,7 +40,7 @@ if (process.env.isOCP) {
   console.log("Make sure you're pointing at the Master in Mongo!");
   mongoose
     .connect(
-      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@mongo-external-mongo.192.168.1.45.nip.io:32463/mongo`,
+      `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@localhost:27017/mongo`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
